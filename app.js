@@ -14,7 +14,7 @@ const htmlContent = `
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff0000, #2575fc);
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
     color: #fff;
     display: flex;
     flex-direction: column;
