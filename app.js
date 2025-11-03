@@ -84,7 +84,7 @@ const htmlContent = `
   <h1>CI/CD is a Success! </h1>
   <p>Your changes deployed effortlessly on GCP Cloud Run.</p>
   <button class="button" onclick="window.location.reload()">Refresh Status</button>
-  <footer>Powered by Express & Google Cloud Run</footer>
+  <footer>Powered by Express & Google Cloud Platform/footer>
 </body>
 </html>
 `;
