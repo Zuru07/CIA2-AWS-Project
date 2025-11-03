@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         GCP_PROJECT   = 'eastern-rider-477015-v1'
-        IMAGE_NAME    = 'my-maven-app'
+        IMAGE_NAME    = 'hello-gcp'
         IMAGE_TAG     = "${env.BUILD_NUMBER}"
         REGISTRY_URL  = "us-central1-docker.pkg.dev/${GCP_PROJECT}/my-repo"
     }
