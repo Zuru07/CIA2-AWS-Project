@@ -6,12 +6,6 @@ This repository contains the source code and configuration for a web application
 
 ## Architecture
 
-+---------------+        +----------------+        +-----------------+        +------------------+
-|   Developer   |  -->   |   GitHub Repo  |  -->   |   Jenkins CI    |  -->   | GCP (Cloud Run / |
-|   (Pushes)    |        |  (Webhook)     |        |  (Build, Test,  |        | Compute Engine)  |
-|               |        |                |        |  Docker, Deploy)|        +------------------+
-+---------------+        +----------------+        +-----------------+          
-
 - **GitHub:** Source control, triggers via webhook on push
 - **Jenkins CI:** Executes build, test, Dockerize, and deployment
 - **Docker:** Containerizes the application
@@ -40,8 +34,10 @@ This repository contains the source code and configuration for a web application
 ## Setup Instructions
 
 ### 1. Clone the repository
-git clone https://github.com/<yourusername>/<yourrepo>.git
-cd <yourrepo>
+```bash 
+git clone https://github.com/<Zuru07>/<Cloud-Deployment-Trial>.git
+cd <Cloud-Deployment-Trial>
+```
 
 ### 2. Jenkins Pipeline Configuration
 
@@ -59,18 +55,22 @@ cd <yourrepo>
 - Dockerfile should correctly reference build artifacts (`target/*.jar` for Java; `dist/*` for Node.js).
 - Example snippet for Dockerfile (Java):
 
+```
 FROM openjdk:17-jre-slim
 COPY target/your-app.jar /app/app.jar
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+```
 
-- Example snippet for Dockerfile (Node.js):
+- Example snippet for Dockerfile:
 
+```
 FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --only=production
 COPY . .
 CMD ["node", "app.js"]
+```
 
 ### 5. GCP Artifact Registry
 
@@ -81,11 +81,13 @@ CMD ["node", "app.js"]
 
 - Deploy using the latest pushed Docker image
 
+```
 gcloud run deploy hello-gcp \
   --image=us-central1-docker.pkg.dev/<GCP_PROJECT>/my-repo/hello-gcp:latest \
   --platform=managed \
   --region=us-central1 \
   --allow-unauthenticated
+  ```
 
 ## How It Works
 
