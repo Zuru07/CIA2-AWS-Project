@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Zuru07/CIA2-AWS-Project.git', branch: 'main'
+                git url: 'https://github.com/Zuru07/Cloud-Deployment-Trial.git', branch: 'main'
             }
         }
         stage('Build & Test') {
